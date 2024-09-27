@@ -1,11 +1,47 @@
-/* body {
-    background-color:aquamarine;
-} */
+body {
+    background-color: rgb(184, 218, 236);
+}
+
+.accordion-item {
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
 
 .accordion-button {
     background-color: #007bff;
-    color: #fff;
+    color: white;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1.25rem;
 }
+
+.accordion-button:not(.collapsed) {
+    background-color: #0056b3;
+    color: white;
+}
+
+.accordion-button.collapsed {
+    background-color: #f1f1f1;
+    color: #007bff;
+}
+
+.accordion-body {
+    background-color: #f8f9fa;
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.accordion-collapse {
+    transition: height 0.4s ease;
+}
+
+.accordion-button:focus {
+    outline: none;
+    box-shadow: none; /* Elimina el destello */
+}
+
 
 #btn-pre{
     --bs-btn-padding-y: 3px;
