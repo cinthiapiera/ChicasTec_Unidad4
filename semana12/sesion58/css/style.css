@@ -1,0 +1,14 @@
+/* body {
+    background-color:aquamarine;
+} */
+
+.accordion-button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#btn-pre{
+    --bs-btn-padding-y: 3px;
+    --bs-btn-padding-x: 5px;
+    --bs-btn-font-size: 12px;
+}
