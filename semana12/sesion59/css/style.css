@@ -1,0 +1,50 @@
+body{
+    background-color: rgb(163, 163, 114);
+}
+
+.custom-tabs .nav-link{
+    background-color: #52add865;
+    color: #495057;
+    border: 1px solid #dee2e6;
+    border-bottom: none;
+    border-radius: 0.25rem 0.25rem 0 0;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.custom-tabs .nav-link.active{
+    background-color: #0d6efd;
+    color: #fff;
+
+}
+
+.custom-tabs .nav-link:hover{
+    background-color: #e9ecef;
+    color: #000;
+}
+
+.tab-pane{
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+#home-tab-pane{
+    background-color: #085fe2;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+#profile-tab-pane{
+    background-color: chocolate;
+    color: #fff;
+    font-family: serif;
+}
+
+#contact-tab-pane{
+    background-color: burlywood;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+}
