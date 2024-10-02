@@ -1,0 +1,446 @@
+/* style.css */
+
+/* ===================================================================
+   Variables CSS
+   =================================================================== */
+   :root {
+    /* Colores Básicos */
+    --primary-color: #0d6efd; /* Azul Bootstrap */
+    --primary-dark: #0a58ca; /* Azul oscuro para hover */
+    --success-color: #198754; /* Verde Bootstrap */
+    --success-dark: #146c43; /* Verde oscuro para hover */
+    --light-color: #f8f9fa; /* Gris claro */
+    --dark-color: #343a40; /* Gris oscuro */
+    --secondary-color: #6c757d; /* Gris medio */
+    --white-color: #ffffff; /* Blanco */
+    --hover-bg-color: rgba(255, 255, 255, 0.555); /* Fondo al hacer hover */
+    --transition-speed: 0.3s; /* Velocidad de transición */
+    --border-radius: 10px; /* Radio de bordes */
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para elementos */
+}
+
+/* ===================================================================
+   Ajustes Generales
+   =================================================================== */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #212529;
+    background-color: var(--light-color);
+}
+
+/* ===================================================================
+   Navbar
+   =================================================================== */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.75rem;
+}
+
+.nav-link {
+    color: var(--white-color);
+    transition: color var(--transition-speed), background-color var(--transition-speed);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--success-color);
+    background-color: var(--hover-bg-color);
+    border-radius: 5px;
+}
+
+/* ===================================================================
+   Carrusel
+   =================================================================== */
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 600px;
+}
+
+.overlay {
+    position: relative;
+}
+
+.overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: var(--white-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.carousel-caption h5 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+}
+
+/* ===================================================================
+   Sección Nosotros
+   =================================================================== */
+#nosotros {
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    padding: 60px 30px;
+}
+
+#nosotros h1 {
+    color: var(--primary-color);
+    font-weight: 400;
+}
+
+#nosotros h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+#nosotros img {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid var(--success-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+#nosotros figcaption {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+/* ===================================================================
+   Ejes Temáticos
+   =================================================================== */
+#ejes-tematicos {
+    background-color: var(--light-color);
+    padding: 60px 30px;
+}
+
+#ejes-tematicos h2 {
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+#ejes-tematicos .card {
+    border: none;
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+#ejes-tematicos .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#ejes-tematicos .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+#ejes-tematicos .card-body {
+    padding: 20px;
+}
+
+#ejes-tematicos .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+#ejes-tematicos .card-text {
+    font-size: 1rem;
+    color: var(--secondary-color);
+}
+
+/* ===================================================================
+   Sección de Precios
+   =================================================================== */
+#precios {
+    background-color: var(--light-color);
+    padding: 60px 30px;
+}
+
+#precios h2 {
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+#precios .card {
+    border: none;
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+}
+
+#precios .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#precios .card-header {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+#precios .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#precios .card-text {
+    font-size: 1rem;
+    color: var(--secondary-color);
+}
+
+#precios .btn-success {
+    background-color: var(--success-color);
+    border: none;
+    transition: background-color var(--transition-speed);
+}
+
+#precios .btn-success:hover,
+#precios .btn-success:focus {
+    background-color: var(--success-dark);
+}
+
+/* ===================================================================
+   Preguntas Frecuentes (FAQ) - Acordeón Mejorado
+   =================================================================== */
+
+/* Estilo General del Acordeón */
+
+#preguntas-frecuentes h2 {
+    color: var(--primary-color);
+}
+
+#preguntas-frecuentes .accordion-button {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1.1rem;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Estado Expandido del Acordeón */
+#preguntas-frecuentes .accordion-button:not(.collapsed) {
+    background-color: var(--success-color);
+    color: var(--white-color);
+}
+
+/* Estado Colapsado del Acordeón */
+#preguntas-frecuentes .accordion-button.collapsed {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* Icono de Pregunta */
+#preguntas-frecuentes .accordion-button i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+/* Indicador de Expansión */
+#preguntas-frecuentes .accordion-button::after {
+    font-size: 1.2rem;
+    transition: transform var(--transition-speed);
+}
+
+/* Rotación del Indicador al Expandir */
+#preguntas-frecuentes .accordion-button:not(.collapsed)::after {
+    transform: rotate(180deg);
+}
+
+/* Cuerpo del Acordeón */
+#preguntas-frecuentes .accordion-body {
+    background-color: var(--light-color);
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    border-top: 1px solid #dee2e6;
+}
+
+
+/* ===================================================================
+   Mapa y Registro (Contacto)
+   =================================================================== */
+#contacto {
+    background-color: var(--light-color);
+    padding: 60px 30px;
+}
+
+#contacto h2 {
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+#contacto iframe {
+    border-radius: var(--border-radius);
+    height: 400px;
+    width: 100%;
+}
+
+#contacto form {
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#contacto form .form-label {
+    font-weight: bold;
+}
+
+#contacto form .btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    transition: background-color var(--transition-speed);
+}
+
+#contacto form .btn-primary:hover,
+#contacto form .btn-primary:focus {
+    background-color: var(--primary-dark);
+}
+
+/* ===================================================================
+   Footer
+   =================================================================== */
+footer {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer h5 {
+    font-size: 1.125rem;
+    margin-bottom: 15px;
+}
+
+footer p,
+footer ul li a {
+    font-size: 0.875rem;
+}
+
+footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    color: var(--white-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+footer ul li a:hover,
+footer ul li a:focus {
+    color: var(--primary-color);
+}
+
+footer .bi {
+    font-size: 1.5rem;
+    transition: color var(--transition-speed);
+}
+
+footer .bi:hover,
+footer .bi:focus {
+    color: var(--primary-color);
+}
+
+footer .border-top {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 768px) {
+    footer .text-md-left {
+        text-align: left;
+    }
+}
+
+/* ===================================================================
+   Animaciones y Transiciones Sutiles
+   =================================================================== */
+.card {
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.accordion-button::after {
+    transition: transform var(--transition-speed);
+}
+
+.accordion-button.collapsed::after {
+    transform: rotate(-180deg);
+}
+
+/* ===================================================================
+   Formularios
+   =================================================================== */
+form input,
+form select {
+    border-radius: 5px;
+    border: 1px solid var(--secondary-color);
+    padding: 10px;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+form input:focus,
+form select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+}
+
+.form-label .text-danger {
+    margin-left: 2px;
+}
