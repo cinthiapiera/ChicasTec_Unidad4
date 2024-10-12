@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
+    <title>ToDoList App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Formulario de inicio de sesión -->
+    <div id="loginForm" class="container mt-5">
+        <h3>Iniciar sesión</h3>
+        <form id="login" aria-labelledby="loginFormHeading">
+            <div class="mb-3">
+                <label for="loginEmail" class="form-label">Correo Electrónico</label>
+                <input type="email" id="loginEmail" class="form-control" placeholder="Ingresa tu correo" required autocomplete="email">
+            </div>
+            <div class="mb-3">
+                <label for="loginPassword" class="form-label">Contraseña</label>
+                <input type="password" id="loginPassword" class="form-control" placeholder="Ingresa tu contraseña" required autocomplete="current-password">
+            </div>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+            <button id="loginGoogleBtn" class="btn btn-danger mt-2" aria-label="Iniciar Sesión con Google">Iniciar Sesión con Google</button>
+            <button id="showRegisterForm" type="button" class="btn btn-link mt-3" aria-label="Registrarse">¿No tienes cuenta? Regístrate aquí</button>
+        </form>
+    </div>
+    
+    <!-- Formulario de registro -->
+    <div id="registerForm" class="container mt-5 d-none">
+        <h3>Registrarse</h3>
+        <form id="register" aria-labelledby="registerFormHeading">
+            <div class="mb-3">
+                <label for="registerEmail" class="form-label">Correo Electrónico</label>
+                <input type="email" id="registerEmail" class="form-control" placeholder="Ingresa tu correo" required autocomplete="email">
+            </div>
+            <div class="mb-3">
+                <label for="registerPassword" class="form-label">Contraseña</label>
+                <input type="password" id="registerPassword" class="form-control" placeholder="Ingresa tu contraseña" required autocomplete="new-password">
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+            <button id="backToLogin" type="button" class="btn btn-secondary mt-2" aria-label="Volver al inicio de sesión">Volver</button>
+        </form>
+    </div>
+
+    <script type="module" src="assets/js/script.js"></script>
+</body>
+</html>
