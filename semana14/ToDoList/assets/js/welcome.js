@@ -57,7 +57,7 @@ window.addEventListener('DOMContentLoaded', async function () {
     });
 });
 
-// Mantenemos tu onAuthStateChanged sin cambios
+// onAuthStateChanged
 onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log("Usuario está autenticado:", user);

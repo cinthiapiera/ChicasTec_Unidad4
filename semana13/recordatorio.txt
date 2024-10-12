@@ -1,0 +1,4 @@
+Este es un recordatorio para revisar el proyecto "firebase-demo"
+que trabajamos en clase. Este proyecto es importante porque contiene
+conceptos fundamentales sobre el uso de Firebase para la autenticación,
+ gestión de datos (database) y otras funcionalidades clave.
