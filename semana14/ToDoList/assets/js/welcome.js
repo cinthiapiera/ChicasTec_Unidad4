@@ -1,4 +1,4 @@
-import { auth, db, saveTask, getTasks, onGetTasks, deleteTask, getTask, updateTask } from "./config.js";
+import { auth, saveTask, getTasks, onGetTasks, deleteTask, getTask, updateTask } from "./config.js";
 import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
 const taskForm = document.getElementById('task-form');
@@ -11,6 +11,10 @@ let id = '';
 
 // Cargar tareas al iniciar
 window.addEventListener('DOMContentLoaded', async function () {
+
+    // const querySnapshot = await getTasks();
+    // console.log(querySnapshot);
+    
     onGetTasks(function (querySnapshot) {
         tasksContainer.innerHTML = '';
 

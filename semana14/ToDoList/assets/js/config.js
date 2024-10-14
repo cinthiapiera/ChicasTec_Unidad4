@@ -20,6 +20,8 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const provider = new GoogleAuthProvider(); // Proveedor de Google
 
+// console.log(auth);
+
 // Función para registrar un nuevo usuario
 export function registerUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password)
@@ -37,6 +39,7 @@ export function registerUser(email, password) {
 export function loginUser(email, password) {
     return signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
+            console.log(userCredential);            
             console.log("Inicio de sesión exitoso. ¡Bienvenido!");
             window.location.href = 'welcome.html';
         })
@@ -68,21 +71,16 @@ export function saveTask(title, description) {
     });
 }
 
-// Función para obtener todas las tareas
+// Función carga una única vez todas las tareas desde la colección 'tasks'.
 export function getTasks() {
     console.log("Fetching tasks list");
     return getDocs(collection(db, 'tasks'));
 }
 
-// Función para suscribirse a cambios en tiempo real
+// Función escucha los cambios en tiempo real en la colección 'tasks'.
+// Crea una suscripción. Cada vez que se agregue, elimine o actualice un documento, el callback se ejecutará automáticamente.
 export function onGetTasks(callback) {
     return onSnapshot(collection(db, 'tasks'), callback);
-}
-
-// Función para eliminar una tarea
-export function deleteTask(id) {
-    console.log("Deleting task:", id);
-    return deleteDoc(doc(db, "tasks", id));
 }
 
 // Función para obtener una tarea específica
@@ -97,5 +95,11 @@ export function updateTask(id, newFields) {
     return updateDoc(doc(db, 'tasks', id), newFields);
 }
 
+// Función para eliminar una tarea
+export function deleteTask(id) {
+    console.log("Deleting task:", id);
+    return deleteDoc(doc(db, "tasks", id));
+}
+
 // Exportar autenticación y base de datos
-export { auth, db };
+export { auth };
