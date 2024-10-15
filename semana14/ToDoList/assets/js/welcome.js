@@ -6,7 +6,7 @@ const tasksContainer = document.getElementById('tasks-container');
 const btnCancel = document.getElementById('btn-task-cancel');
 const btnLogout = document.getElementById('logout');
 
-let editStatus = false;
+let editStatus = false; //bandera
 let id = '';
 
 // Cargar tareas al iniciar
@@ -20,6 +20,7 @@ window.addEventListener('DOMContentLoaded', async function () {
 
         querySnapshot.forEach(doc => {
             const task = doc.data();
+            // console.log(task, doc.id)
             tasksContainer.innerHTML += `
                 <div class="card card-body mt-2">
                     <h3 class="h5">${task.title}</h3>
