@@ -1,0 +1,52 @@
+Flujo de Trabajo con Git y GitHub para Colaborar en un Proyecto
+
+1. Clonar el proyecto remoto
+
+$git clone <url-del-proyecto>
+
+2. Moverte al directorio del proyecto
+
+$cd <nombre-del-proyecto>
+
+3. Crear una nueva rama para tu trabajo
+
+$git checkout -b rama-developer
+
+4. Realizar cambios y prepararlos para commit
+
+- Modifica los archivos necesarios en tu proyecto.
+
+$git add .
+$git commit -m "Descripción de los cambios"
+
+5. Subir la rama al repositorio remoto
+
+$git push origin rama-developer
+
+6. Cambiar a la rama principal (`main`)
+
+$git checkout main
+
+7. Actualizar tu rama `main` con los últimos cambios remotos
+
+$git pull origin main
+
+8. Rebase de tu rama con los últimos cambios
+
+(Desde tu rama de trabajo `rama-developer`)
+
+$git checkout rama-developer
+$git rebase main
+
+(si existe conflictos resolverlos y volver a realizar el rebase)
+
+$git rebase --continue
+
+9. Fusionar tu rama `rama-developer` en `main`
+
+$git checkout main
+$git merge --no-ff rama-developer
+
+10. Subir los cambios fusionados al repositorio remoto
+
+$git push origin main
