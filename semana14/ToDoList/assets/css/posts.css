@@ -1,4 +1,7 @@
-/* profile.css */
+body {
+    background-color: #343a40; /* Color celeste */
+}
+
 .card {
     border: 1px solid #e0e0e0;
     border-radius: 10px;

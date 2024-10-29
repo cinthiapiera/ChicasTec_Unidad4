@@ -1,4 +1,4 @@
-import { auth, saveTask, getTasks, onGetTasks, deleteTask, getTask, updateTask } from "./config.js";
+import { auth, saveTask, onGetTasks, deleteTask, getTask, updateTask } from "./config.js";
 import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
 const taskForm = document.getElementById('task-form');
@@ -62,29 +62,6 @@ window.addEventListener('DOMContentLoaded', async function () {
     });
 });
 
-// onAuthStateChanged
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        console.log("Usuario está autenticado:", user);
-    } else {
-        console.log("Usuario no está autenticado.");
-        window.location.href = 'index.html'; // Redirige si no hay usuario
-    }
-});
-
-// Cerrar sesión
-btnLogout.addEventListener('click', () => {
-    signOut(auth)
-        .then(() => {
-            console.log("Cierre de sesión exitoso.");
-            window.location.href = 'index.html';
-        })
-        .catch((error) => {
-            console.error("Error al cerrar sesión:", error);
-            alert("No se pudo cerrar sesión. Intenta de nuevo.");
-        });
-});
-
 // Manejar el envío del formulario
 taskForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -116,7 +93,25 @@ btnCancel.addEventListener('click', function () {
     btnCancel.style.display = 'none';
 });
 
-document.getElementById("perfil").addEventListener('click', function(event){
-    event.preventDefault();
-    window.location.href = 'profile.html';
-})
+// onAuthStateChanged
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        console.log("Usuario está autenticado:", user);
+    } else {
+        console.log("Usuario no está autenticado.");
+        window.location.href = 'index.html'; // Redirige si no hay usuario
+    }
+});
+
+// Cerrar sesión
+btnLogout.addEventListener('click', () => {
+    signOut(auth)
+        .then(() => {
+            console.log("Cierre de sesión exitoso.");
+            window.location.href = 'index.html';
+        })
+        .catch((error) => {
+            console.error("Error al cerrar sesión:", error);
+            alert("No se pudo cerrar sesión. Intenta de nuevo.");
+        });
+});

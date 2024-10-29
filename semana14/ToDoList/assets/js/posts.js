@@ -2,7 +2,6 @@ import { auth, createPost, onGetPosts, getCurrentUserId, updatePostLikes, fetchP
 import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
 const btnLogout = document.getElementById('logout');
-
 const postForm = document.getElementById('postForm');
 const postText = document.getElementById('postText');
 const postImage = document.getElementById('postImage');
@@ -27,7 +26,7 @@ function displayPosts(posts) {
     postsContainer.innerHTML = ''; // Limpiar el contenedor
     posts.forEach(post => {
         const postElement = document.createElement('div');
-        postElement.classList.add('col-12', 'col-md-6'); // Configuración de columnas responsive
+        postElement.classList.add('col-12', 'col-md-4', 'col-lg-3'); // Configuración de columnas responsive
         postElement.innerHTML = `
             <div class="card shadow-sm h-100">
                 <div class="card-body">
@@ -76,8 +75,6 @@ function displayPosts(posts) {
         });
     });
 }
-
-
 
 // Llamada a la función que escucha las publicaciones en tiempo real
 onGetPosts(displayPosts);

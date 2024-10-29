@@ -1,3 +1,7 @@
+body {
+    background-color: #343a40; /* Color celeste */
+}
+
 .container {
     width: 300px;
     margin: auto; 

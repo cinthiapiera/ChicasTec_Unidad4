@@ -21,13 +21,14 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 const provider = new GoogleAuthProvider(); // Proveedor de Google
 
+//--------------AUTH-----------------------//
 
 // Función para registrar un nuevo usuario
 export function registerUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             console.log("Registro exitoso. ¡Bienvenido!");
-            window.location.href = 'welcome.html';
+            window.location.href = 'tasks.html';
         })
         .catch((error) => {
             console.error("Error al registrar:", error.code, error.message);
@@ -41,7 +42,7 @@ export function loginUser(email, password) {
         .then((userCredential) => {
             console.log(userCredential);            
             console.log("Inicio de sesión exitoso. ¡Bienvenido!");
-            window.location.href = 'welcome.html';
+            window.location.href = 'tasks.html';
         })
         .catch((error) => {
             console.error("Error al iniciar sesión:", error.code, error.message);
@@ -54,13 +55,15 @@ export function loginWithGoogle() {
     return signInWithPopup(auth, provider)
         .then((result) => {
             console.log("Inicio de sesión con Google exitoso. ¡Bienvenido!", result.user);
-            window.location.href = 'welcome.html';
+            window.location.href = 'tasks.html';
         })
         .catch((error) => {
             console.error("Error al iniciar sesión con Google:", error.code, error.message);
             alert("Error al iniciar sesión con Google: " + error.message);
         });
 }
+
+//--------------TASKS----------------------//
 
 // Función para agregar una tarea
 export function saveTask(title, description) {
@@ -72,10 +75,10 @@ export function saveTask(title, description) {
 }
 
 // Función carga una única vez todas las tareas desde la colección 'tasks'.
-export function getTasks() {
-    console.log("Fetching tasks list");
-    return getDocs(collection(db, 'tasks'));
-}
+// export function getTasks() {
+//     console.log("Fetching tasks list");
+//     return getDocs(collection(db, 'tasks'));
+// }
 
 // Función escucha los cambios en tiempo real en la colección 'tasks'.
 // Crea una suscripción. Cada vez que se agregue, elimine o actualice un documento, el callback se ejecutará automáticamente.
@@ -101,8 +104,8 @@ export function deleteTask(id) {
     return deleteDoc(doc(db, "tasks", id));
 }
 
+//--------------POSTS-----------------------//
 
-// Publicaciones
 export function createPost(text, imageFile) {
     let imageUrl = null;
 
@@ -142,8 +145,8 @@ export function onGetPosts(callback) {
     });
 }
 
+//---------------LIKE-DISLIKE------------------------//
 
-//like y dislike
 // Función para obtener el ID del usuario actual
 export const getCurrentUserId = () => {
     const user = auth.currentUser;
