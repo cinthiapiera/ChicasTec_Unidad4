@@ -13,6 +13,7 @@ postForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const text = postText.value;
     const image = postImage.files[0];
+    
     createPost(text, image).then(() => {
         alert("Publicación creada exitosamente");
         postForm.reset();

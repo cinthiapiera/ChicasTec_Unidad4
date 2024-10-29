@@ -107,7 +107,7 @@ export function createPost(text, imageFile) {
     let imageUrl = null;
 
     if (imageFile) {
-        const storageRef = ref(storage, `images/${imageFile.name}`);
+        const storageRef = ref(storage, `images/${auth.currentUser.uid}/${imageFile.name}`);
         return uploadBytes(storageRef, imageFile).then((snapshot) => {
             return getDownloadURL(snapshot.ref);
         }).then((url) => {
@@ -122,13 +122,13 @@ export function createPost(text, imageFile) {
 // Guardar la publicación en Firestore
 function savePost(text, imageUrl) {
     const post = {
+        author: auth.currentUser.uid,
         text: text,
         imageUrl: imageUrl,
         likes: 0,
         dislikes: 0,
         createdAt: new Date() // Usar la fecha actual como timestamp
     };
-
     return addDoc(collection(db, 'posts'), post);
 }
 
